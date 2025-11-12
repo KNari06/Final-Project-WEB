@@ -362,3 +362,22 @@ window.addEventListener("click", (e) => {
     modal.style.display = "none";
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+ document.getElementById("copyPhone").addEventListener("click", function() {
+    const phoneNumber = "+77079894995";
+    navigator.clipboard.writeText(phoneNumber).then(() => {
+      alert("📋 Номер скопирован: " + phoneNumber);
+    }).catch(err => {
+      console.error("Ошибка при копировании:", err);
+    });
+  });
