@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog</title>
+      <link rel="stylesheet" href="/CSS/catolog.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+          <!-- Scroll Progress Bars -->
+    <!-- Горизонтальный (вверху) -->
+    <div id="scrollProgressWrap">
+      <div id="scrollProgressBar"></div>
+      <div id="scrollProgressLabel">0%</div>
+    </div>
+
+        <!-- SIDEBAR + OVERLAY -->
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <aside class="sidebar" id="sidebar" aria-hidden="true">
+      <button class="close-btn" id="closeSidebar">✕</button>
+      <a href="/HTML/index.html" class="side-link">Home</a>
+      <a href="/HTML/index2.html" class="side-link">Apps</a>
+      <a href="/HTML/catolog.html" class="side-link">Catalog</a>
+      <a href="/HTML/about.html" class="side-link">About us</a>
+
+    </aside>
+
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="menu">
+          <a href="#" class="menu_logo">
+            <img src="/img/360_F_699905865_uAhm2hwqnIucPWzmZXuE8VBJ7dKudgZR-removebg-preview.png" alt="D&C logo" width="44" height="44" />
+            <span>D&C</span>
+            <div class="theme-toggle">
+              <label class="theme-switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </a>
+
+
+          
+          <div class="menu_links">
+            <a href="/HTML/index.html" class="menu_link active">Home</a>
+            <a href="/HTML/index2.html" class="menu_link">Apps</a>
+            <a href="/HTML/catolog.html" class="menu_link">Catalog</a>
+            <a href="/HTML/about.html" class="menu_link">About us</a>
+
+          </div>
+
+          
+
+
+          <!-- burger -->
+          <button class="burger" id="burger" aria-expanded="false">
+            <span class="lines"><span></span><span></span><span></span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <script src="/JS/super.js"></script>
+
+
+    <label for="sidebarToggle" class="sidebar-button">&#9776; Filters</label>
+<input type="checkbox" id="sidebarToggle" hidden />
+
+<aside class="sidebar">
+  <h2>Filters</h2>
+  <form>
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+      <option value="">Select a country</option>
+      <option value="usa">USA</option>
+      <option value="japan">Japan</option>
+      <option value="germany">Germany</option>
+      <option value="russia">Russia</option>
+      <option value="kz">Kazakhstan</option>
+    </select>
+
+    <label for="city">City:</label>
+    <select id="city" name="city" required>
+      <option value="">Select a city</option>
+      <option value="newyork">New York (USA)</option>
+      <option value="losangeles">Los Angeles (USA)</option>
+      <option value="chicago">Chicago (USA)</option>
+      <option value="tokyo">Tokyo (Japan)</option>
+      <option value="osaka">Osaka (Japan)</option>
+      <option value="kyoto">Kyoto (Japan)</option>
+      <option value="berlin">Berlin (Germany)</option>
+      <option value="munich">Munich (Germany)</option>
+      <option value="hamburg">Hamburg (Germany)</option>
+      <option value="moscow">Moscow (Russia)</option>
+      <option value="saintpetersburg">Saint Petersburg (Russia)</option>
+      <option value="novosibirsk">Novosibirsk (Russia)</option>
+      <option value="almaty">Almaty (Kazakhstan)</option>
+      <option value="astana">Astana (Kazakhstan)</option>
+      <option value="shymkent">Shymkent (Kazakhstan)</option>
+    </select>
+
+    <label for="brand">Car Brand:</label>
+    <select id="brand" name="brand" required>
+      <option value="">Select a brand</option>
+      <option value="bmw">BMW</option>
+      <option value="audi">Audi</option>
+      <option value="toyota">Toyota</option>
+      <option value="mercedes">Mercedes</option>
+    </select>
+
+    <label for="year">Year:</label>
+    <select id="year" name="year" required>
+      <option value="">Select a year</option>
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+    </select>
+
+    <label for="price">Price (up to):</label>
+    <input type="range" id="price" name="price" min="10000" max="200000" step="1000" value="50000" />
+    <span id="priceValue">50,000</span> $
+
+    <button type="submit">Apply</button>
+  </form>
+</aside>
+
+
+  <section class="our_services">
+      <div class="our_services_top">
+        <h1>Pick a car from your Dream</h1>
+        <p class="dream_text">
+            Explore our exclusive collection of luxury and exotic cars.
+            Each model is handpicked to meet the highest standards of performance, design, and rarity.
+            Found your dream car? Let’s make it yours.
+        </p>
+      </div>
+
+       <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Find for a car...">  
+        <button id="searchBtn"><img src="https://png.klev.club/uploads/posts/2024-05/png-klev-club-pe1f-p-lupa-belaya-png-19.png" alt="" width="15"></button>
+      </div>
+
+      <div class="our_services_content">        
+        <div class="service_card">
+          <img src="/img/porsche-logo-png-design-116610760732vnljif0nf-removebg-preview.png" class="porche" alt="911" />
+          <h3>Porche 911 GT</h3>
+          <p>
+            A pure expression of performance and precision.
+            With its iconic design, race-bred engineering, and unmistakable driving dynamics, the 911 GT delivers adrenaline on demand. Built for the track — ready for the road.
+          </p>
+        </div>
+        <div class="service_card">
+          <img src="/img/a878cc729a3c8195d37facde55961b87-removebg-preview.png" alt="lamba" />
+          <h3>Lamborghini</h3>
+          <p>
+            Bold. Iconic. Uncompromising.
+            Lamborghini is more than a car — it’s a statement.
+            Engineered for extreme performance and unmistakable style, every model delivers raw power and Italian passion in its purest form.
+          </p>
+        </div>
+        <div class="service_card">
+          <img src="/img/McLAren-F1-018-2019-exterior-removebg-preview.png" alt="Mclaren" />
+          <h3>Mclaren</h3>
+          <p>
+            Where innovation meets adrenaline.
+            Born on the track and engineered for the road, McLaren blends cutting-edge technology with breathtaking performance. Every curve, every detail — built for pure driving thrill.
+          </p>
+        </div>
+        <div class="service_card">
+          <img src="/img/mansory-rolls-royce-ghost-2021-white-background-2021-5k-8k-4480x2520-6204-removebg-preview.png" alt="charizard" />
+          <h3>Mansory Rolls-Royce Ghost</h3>
+          <p>
+            Exclusive Mansory tuning, powerful engine, and luxurious interior. The perfect choice for those who value unique style and ultimate comfort.
+          </p>
+        </div>
+        <div class="service_card">
+          <img src="/img/mansory_mercedes_amg_g_63_algorithmic_fade_2022_4k_8k-2560x1440-removebg-preview.png" alt="Gengar" />
+          <h3>Mansory Mercedes-AMG G 63</h3>
+          <p>
+            Bold Mansory design, unmatched power, and rugged luxury. The ultimate SUV for off-road thrills and city prestige.
+          </p>
+        </div>
+        <div class="service_card">
+          <img src="/img/pngtree-detailed-2019-bugatti-chiron-model-in-1-18-scale-on-a-png-image_12513886-removebg-preview.png" alt="squirtle" />
+          <h3>Bugatti Chiron</h3>
+          <p>
+            A meticulously crafted 1:18 scale replica of the iconic 2019 Bugatti Chiron. Perfect for collectors and enthusiasts who appreciate precision and luxury in every detail.
+          </p>
+        </div>
+
+                             <!-- Скрытые карточки (появятся при нажатии Learn more) -->
+        <div class="our_services_content hidden-content">
+          <div class="service_card">
+            <img src="/img/Ferrari-F8-Tributo_283.png" alt="Ferrari" />
+            <h3>Ferrari F8 Tributo</h3>
+            <p>
+              Italian power and elegance in every line. Ferrari F8 Tributo delivers both beauty and pure racing DNA.
+            </p>
+          </div>
+          <div class="service_card">
+            <img src="/img/2024_aston-martin_db12_1-base_ext_032_noi.png" alt="Aston Martin" />
+            <h3>Aston Martin DBS</h3>
+            <p>
+              A blend of British craftsmanship and modern technology — the ultimate grand tourer for refined power.
+            </p>
+          </div>
+          <div class="service_card">
+            <img src="/img/bentley.png" alt="Bentley" />
+            <h3>Bentley Continental GT</h3>
+            <p>
+              Luxury and performance redefined. The Continental GT embodies timeless design with effortless speed.
+            </p>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="our_services_button more-btn">Learn more</a>
+    </section>
+
+
+
+
+    <div class="search-bar">
+  <input type="text" id="autoInput" placeholder="Start entering the car brand...">
+  <div class="suggestions" id="suggestionsBox"></div>
+</div>
+
+    <section class="dynamic_cars">
+  <h2>Popular Cars</h2>
+  <div id="carList" class="car-list"></div>
+</section>
+
+<section class="animation-section">
+  <button id="animateBtn"> All Cars</button>
+</section>
+
+
+<script src="/JS/script.js"></script>
+<script src="/JS/scroll.js"></script>
+<script src="/JS/theme-toggle.js"></script>
+
+
+
+</body>
+</html>

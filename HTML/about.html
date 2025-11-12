@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Dream Car</title>
+  <link rel="stylesheet" href="/CSS/nura2.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+          <!-- Scroll Progress Bars -->
+    <div id="scrollProgressWrap">
+      <div id="scrollProgressBar"></div>
+      <div id="scrollProgressLabel">0%</div>
+    </div>
+
+        <!-- SIDEBAR + OVERLAY -->
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <aside class="sidebar" id="sidebar" aria-hidden="true">
+      <button class="close-btn" id="closeSidebar">✕</button>
+      <a href="/HTML/index.html" class="side-link">Home</a>
+      <a href="/HTML/index2.html" class="side-link">Apps</a>
+      <a href="/HTML/catolog.html" class="side-link">Catalog</a>
+      <a href="/HTML/about.html" class="side-link">About us</a>
+
+    </aside>
+
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="menu">
+          <a href="#" class="menu_logo">
+            <img src="/img/360_F_699905865_uAhm2hwqnIucPWzmZXuE8VBJ7dKudgZR-removebg-preview.png" alt="D&C logo" width="44" height="44" />
+            <span>D&C</span>
+            <div class="theme-toggle">
+              <label class="theme-switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </a>
+
+          <div class="menu_links">
+            <a href="/HTML/index.html" class="menu_link active">Home</a>
+            <a href="/HTML/index2.html" class="menu_link">Apps</a>
+            <a href="/HTML/catolog.html" class="menu_link">Catalog</a>
+            <a href="/HTML/about.html" class="menu_link">About us</a>
+
+          </div>
+
+          <!-- burger -->
+          <button class="burger" id="burger" aria-expanded="false">
+            <span class="lines"><span></span><span></span><span></span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <script src="/JS/super.js"></script>
+
+
+    <section class="about_intro">
+      <h1>DreamCar</h1>
+      <p>
+        DreamCar is more than a startup. This is a story about two friends 
+        who in 1995 were inspired by cars of the future and decided 
+        open a company to give people the cars of their dreams.  
+        Today, DreamCar has been operating for more than 30 years and is one of the leaders. 
+        in the field of digital automotive solutions.
+      </p>
+    </section>
+
+    <section class="about_values">
+      <h2>Our Values</h2>
+      <ul>
+        <li>🚀 Innovation – pushing the boundaries of automotive technology</li>
+        <li>🤝 Trust – building strong and long-term partnerships</li>
+        <li>🌍 Impact – creating products that inspire millions worldwide</li>
+      </ul>
+    </section>
+
+
+
+<!-- Popup trigger -->
+<section class="popup_section">
+  <button id="openPopupBtn" class="sub">Subscribe</button>
+</section>
+
+<!-- Popup form  -->
+<div class="popup_overlay" id="popupOverlay">
+  <div class="popup_box">
+    <span id="closePopupBtn" class="close_btn">&times;</span>
+    <h2>Subscribe to our newsletter</h2>
+    <form id="popupForm">
+      <input type="text" placeholder="Your name" required />
+      <input type="email" placeholder="Your email" required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+    <section class="about_clients">
+  <h2>Our Clients</h2>
+  <div class="clients_grid">
+    <div class="client_card">
+      <img src="/img/penaldo.webp" alt="RONALDO">
+      <h3>Cristiano Ronaldo</h3>
+      <p>Football Legend</p>
+    </div>
+    <div class="client_card">
+      <img src="/img/pelon pask.png" alt="MUSK">
+      <h3>Elon Musk</h3>
+      <p>Entrepreneur & Innovator</p>
+    </div>
+    <div class="client_card">
+      <img src="/img/peyonce.png" alt="BEYONCE">
+      <h3>Beyoncé</h3>
+      <p>Global Artist</p>
+    </div>
+    <div class="client_card">
+      <img src="/img/pom pruise.png" alt="TOM">
+      <h3>Tom Cruise</h3>
+      <p>Hollywood Actor</p>
+    </div>
+    <div class="client_card">
+      <img src="/img/pessii.webp" alt="MESSI">
+      <h3>Lionel Messi</h3>
+      <p>Football Legend</p>
+    </div>
+    <div class="client_card">
+      <img src="/img/pill pates.png" alt="BILL">
+      <h3>Bill Gates</h3>
+      <p>Philanthropist & Tech Pioneer</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="faq">
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="accordion-item">
+    <div class="accordion-title">1. What services do you offer?</div>
+    <div class="accordion-content">
+      <p>We offer travel planning, hotel booking, and city tours across Kazakhstan.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">2. How can I contact support?</div>
+    <div class="accordion-content">
+      <p>You can contact us by email, phone, or through our contact form on this page.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">3. Do you offer student discounts?</div>
+    <div class="accordion-content">
+      <p>Yes! We offer up to 15% off for students with a valid ID card.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 DreamCar. All rights reserved.</p>
+  </footer>
+  <script src="/JS/script.js"></script>
+  <script src="/JS/scroll.js"></script>
+  <script src="/JS/theme-toggle.js"></script>
+</body>
+</html>

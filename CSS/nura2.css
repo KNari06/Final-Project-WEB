@@ -1,0 +1,671 @@
+/* ========== RESET & BASE ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-family: "Mulish", sans-serif; font-size: 16px; }
+body { background: #1D1616; color: #EEE; -webkit-font-smoothing:antialiased; overflow-x: hidden; }
+
+/* container to keep header content centered on wide screens */
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+#sidebar a:focus,
+.menu_links a:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.key-focus {
+  transform: scale(1.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+/* ========== NAVBAR (desktop / tablet) ========== */
+header { padding: 1.1rem 0; }
+nav.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* logo */
+.menu_logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  color: #EEE;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.menu_logo img { width: 44px; height: 44px; display:block; }
+
+/* normal horizontal links */
+.menu_links {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+}
+.menu_links a {
+  color: #EEE;
+  text-decoration: none;
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: color .18s ease, transform .18s ease;
+}
+.menu_links a:hover { color: #D84040; transform: translateY(-1px); }
+.menu_links .active { color: #D84040; font-weight: 700; }
+
+/* ========== BURGER (hidden on desktop) ========== */
+.burger {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.burger .lines { position: relative; width: 18px; height: 12px; }
+.burger .lines span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #EEE;
+  border-radius: 2px;
+  transition: transform .28s ease, opacity .2s ease, top .28s ease;
+}
+.burger .lines span:nth-child(1) { top: 0; }
+.burger .lines span:nth-child(2) { top: 5px; }
+.burger .lines span:nth-child(3) { top: 10px; }
+
+/* when active, transform to X */
+.burger.open .lines span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+.burger.open .lines span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.burger.open .lines span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+/* ========== SIDEBAR (mobile) ========== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  z-index: 900;
+}
+.overlay.visible { opacity: 1; pointer-events: all; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -290px;
+  width: 290px;
+  height: 100vh;
+  background: linear-gradient(180deg,#2b1f1f,#241616);
+  padding: 2.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: left .36s cubic-bezier(.2,.9,.3,1);
+  z-index: 1000;
+}
+.sidebar.visible { left: 0; }
+
+.sidebar .menu_logo { color: #fff; font-size: 1.05rem; margin-bottom: .6rem; }
+.sidebar a {
+  color: #EEE;
+  text-decoration: none;
+  padding: .65rem .5rem;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  transition: color .18s ease, background .18s ease;
+  display: block;
+}
+.sidebar a:hover { color: #D84040; }
+
+/* close btn inside sidebar (optional) */
+.sidebar .close-btn {
+  margin-top: 0.25rem;
+  margin-bottom: 0.6rem;
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  color: #EEE;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ========== RESPONSIVE RULES ========== */
+/* mobile: replace horizontal menu with burger + sidebar; center header content */
+@media (max-width: 768px) {
+  nav.menu { justify-content: center; position: relative; }
+
+  /* hide horizontal links */
+  .menu_links { display: none; }
+
+  /* show burger */
+  .burger {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* center logo */
+  .menu_logo { justify-content: center; }
+
+  /* sidebar link styles slightly larger */
+  .sidebar a { font-size: 1.15rem; }
+}
+
+/* tablet: keep horizontal but allow wrap and center if needed */
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav.menu { justify-content: space-between; }
+  .menu_links { gap: .5rem; flex-wrap: wrap; justify-content: center; }
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* page content quick style */
+.page-content { padding: 2rem 0; }
+.page-content p { color: #ccc; max-width: 68ch; line-height: 1.6; }
+
+/* ===== ADAPTIVE ===== */
+
+@media (max-width: 768px) {
+  nav.menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .menu_links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu_link {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+img {
+  width: auto;
+  height: 70px;
+}
+.menu_link,
+.menu_link-active {
+  padding: 10px;
+  margin: 10px;
+}
+
+.menu_link-active {
+  font-weight: bold;
+}
+
+.about {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #EEEEEE;
+  text-align: center;
+}
+
+.about_intro {
+  margin-bottom: 70px;
+}
+
+.about_intro h1 {
+  font-size: 2.5rem;
+  color: #D84040;
+  margin-bottom: 40px;
+    display: flex;
+  justify-content: center;
+}
+
+
+.about_intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin: 0 auto 40px;
+  max-width: 700px;
+}
+
+.about_values {
+  margin-bottom: 100px;
+}
+
+.about_values h2 {
+  font-size: 2rem;
+  color: #D84040;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.about_values ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about_values li {
+  font-size: 1.1rem;
+  color: #EEEEEE;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+
+/* === CLIENTS SECTION === */
+.about_clients {
+  text-align: center;
+  margin: 100px auto;
+  padding: 40px 20px;
+  max-width: 1300px;
+}
+
+.about_clients h2 {
+  font-size: 2rem;
+  color: #D84040;
+  margin-bottom: 60px;
+}
+
+/* сетка */
+.clients_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px; /* одинаковые отступы между карточками */
+  justify-items: center;
+}
+
+/* карточки */
+.client_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #8E1616;
+  color: #EEEEEE;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(198, 48, 48, 0.4);
+
+  width: 100%;
+  max-width: 320px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client_card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(216, 64, 64, 0.6);
+}
+
+/* изображения */
+.client_card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* аккуратно заполняет без растяжения */
+  object-position: top center; /* показываем верхнюю часть изображения */
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* текст */
+.client_card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.client_card p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+/* адаптив */
+@media (max-width: 600px) {
+  .clients_grid {
+    gap: 25px;
+  }
+
+  .client_card {
+    max-width: 260px;
+    padding: 20px;
+  }
+
+  .client_card img {
+    height: 160px;
+  }
+}
+
+footer {
+  background: #1D1616;
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+
+.faq {
+  background: #111;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.accordion-item {
+  background: #222;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+
+.accordion-title {
+  color: #3498db;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #1a1a1a;
+  padding: 0 15px;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 120px;
+  padding: 15px;
+}
+
+
+
+
+.popup_section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.popup_section button {
+  background-color: red; /* фон кнопки */
+  font-weight: bold;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-size: 16px;
+  color: black; /* цвет текста по умолчанию для светлой темы */
+}
+
+.popup_overlay {
+  display: none; /* скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup_box {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.close_btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
+.popup_box form input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.popup_box button {
+  background-color: #3498db;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .popup_section button {
+    color: white; /* текст кнопки в темной теме */
+  }
+}
+
+
+/* ===== Scroll Progress Bar (TOP only) ===== */
+#scrollProgressWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 9999;
+  border-radius: 999px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+#scrollProgressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffcc00, #ff8800);
+  transition: width 0.25s ease-out;
+  border-radius: 999px;
+}
+
+#scrollProgressLabel {
+  display: none;
+}
+
+/* Убираем вертикальный прогресс (если был) */
+#scrollProgressWrapVertical {
+  display: none !important;
+}
+
+
+
+
+
+:root {
+  --bg: #1D1616;
+  --text: #EEE;
+  --card: #2a1f1f;
+  --accent: #D84040;
+}
+
+/* Светлая тема */
+.light-theme {
+  --bg: #ffffff;
+  --text: #111111;
+  --card: #f2f2f2;
+  --accent: #c40000;
+}
+
+/* Применение общих цветов */
+body, footer, .sidebar, .client_card, .faq, .accordion-item, .accordion-content {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Карточки */
+.client_card,
+.accordion-item,
+.accordion-content,
+.popup_box {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+}
+
+p, li, a, span, label, input, button, h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
+a:hover, .menu_links .active, .accordion-title, .popup_section button, .popup_box button {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+
+footer {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+
+
+.sidebar {
+  background: var(--card) !important;
+}
+
+input:checked + .slider {
+  background: var(--accent) !important;
+}
+
+
+/* Плавный переход */
+.theme-transition {
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+
+/* Тёмная тема */
+.dark-theme {
+  --bg: #000;
+  --text: #fff;
+  --card: #111;
+  --accent: #ff1e1e;
+}
+
+/* Светлая тема */
+.light-theme {
+  --bg: #ffffff;
+  --text: #111111;
+  --card: #f2f2f2;
+  --accent: #c40000;
+}
+
+/* Базовые цвета текста */
+body, p, a, span, li, label, input, button, h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
+/* Применяем переменные */
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+footer, .sidebar {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+
+/* Все карточки */
+.card, .service_card, .box, .item, .content, .car-list div {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+
+/* Акцентные элементы */
+button, .btn, .link, a:hover {
+  color: var(--accent) !important;
+}
+
+/* ===== ПОЛЗУНОК ТЕМ ===== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.theme-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #888;
+  border-radius: 24px;
+  transition: .3s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background: var(--accent);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
