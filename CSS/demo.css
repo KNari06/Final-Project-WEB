@@ -1,0 +1,284 @@
+/* ===== Theme variables ===== */
+:root{
+  --bg: #1D1616;     
+  --bg-2: #2A1F1F;   
+  --muted: #151010;  
+  --text: #EEEEEE;   
+  --accent: #D84040; 
+  --accent-2: #FF4C4C;
+}
+
+/* ===== Page basics ===== */
+body.bg-dark-1 {
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Reusable section wrapper for demo blocks */
+.association {
+  border-radius: 10px;
+}
+
+#intro {
+  margin-top: 210px;
+}
+#carousel{
+  margin-top: 210px;
+}
+#cards{
+  margin-top: 210px;
+}
+#form{
+  margin-top: 210px;
+}
+ 
+#foot{
+  margin-top: 250px;
+}
+/* Card like surfaces in Dark theme */
+.bg-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  background-color: var(--bg-2);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Muted small boxes */
+.bg-muted {
+  background-color: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+
+/* Footer */
+.bg-footer {
+  background: linear-gradient(180deg, #1D1616 0%, #610a0a 80%);
+  color: #fff;
+}
+
+/* Accent headings */
+.accent {
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* Card custom for small hover effect */
+.card-custom {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card-custom:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(216,64,64,0.12);
+}
+
+/* Navbar brand text */
+.brand-title {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Larger carousel images on desktop for readability */
+.carousel-img {
+  width: auto;
+  height: 450px;
+  padding: 20px;
+  object-fit: cover;
+}
+
+/* Cards images & layout */
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Small screens: adjust typography for readability */
+@media (max-width: 600px){
+  .carousel-img { height: 220px; }
+  .card-img-top { height: 160px; }
+  h1.display-6 { font-size: 1.4rem; }
+}
+
+/* Tablet adjustments */
+@media (min-width: 601px) and (max-width: 1024px){
+  .carousel-img { height: 320px; }
+}
+
+/* Accessibility focus state */
+a:focus, button:focus, input:focus {
+  outline: 3px solid rgba(216,64,64,0.22);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+
+.text-muted-light { color: rgba(238,238,238,0.65); }
+
+
+img.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+
+#resetButton {
+  background-color: #ff4c4c;
+  color: white;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+#resetButton:hover {
+  background-color: #bd4747;
+}
+
+/* Success centered box */
+.success-box {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%) scale(0.96);
+  min-width: 320px;
+  max-width: 90%;
+  background: linear-gradient(180deg, rgba(34,34,34,0.98), rgba(18,18,18,0.98));
+  color: #e9f8ee;
+  border: 1px solid rgba(76, 175, 80, 0.18);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  border-radius: 12px;
+  padding: 18px 22px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 260ms;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* inner layout */
+.success-inner { display:flex; align-items:center; gap:14px; }
+.success-icon { font-size: 28px; }
+.success-text { font-weight:600; font-size:16px; }
+
+/* visible state */
+.success-box.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+/* hide helper */
+.hidden { display: block; } /* keep DOM presence but controlled via .show/.hidden states */
+
+/* small screens tweak */
+@media (max-width: 520px) {
+  .success-box { top: 25%; min-width: 260px; padding:12px 14px; }
+  .success-text { font-size:14px; }
+}
+
+
+
+
+
+/* Плавный переход */
+.theme-transition {
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+
+/* Тёмная тема (твоя текущая) */
+.dark-theme {
+  --bg: #000;
+  --text: #fff;
+  --card: #111;
+  --accent: #ff1e1e;
+}
+
+/* Светлая тема (новая) */
+.light-theme {
+  --bg: #ffffff;
+  --text: #111111;
+  --card: #f2f2f2;
+  --accent: #c40000;
+}
+/* Базовые цвета текста */
+body, p, a, span, li, label, input, button, h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
+/* Применяем переменные */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+footer {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+
+.sidebar {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+
+
+/* Все карточки, панели, блоки */
+.card, .box, .content, .item {
+  background: var(--card) !important;
+}
+
+/* Акцентные элементы */
+button, .btn, .link, a:hover {
+  color: var(--accent) !important;
+}
+
+/* ===== ползунок тем ===== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.theme-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #888;
+  border-radius: 24px;
+  transition: .3s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background: var(--accent);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream Car</title>
+    <link rel="stylesheet" href="/CSS/nura.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="scrollProgressWrap">
+      <div id="scrollProgressBar"></div>
+      <div id="scrollProgressLabel">0%</div>
+    </div>
+
+       <!-- SIDEBAR + OVERLAY -->
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <aside class="sidebar" id="sidebar" aria-hidden="true">
+      <button class="close-btn" id="closeSidebar">✕</button>
+      <a href="/HTML/index.html" class="side-link">Home</a>
+      <a href="/HTML/index2.html" class="side-link">Apps</a>
+      <a href="/HTML/catolog.html" class="side-link">Catalog</a>
+      <a href="/HTML/about.html" class="side-link">About us</a>
+      <a href="/HTML/components.html" class="side-link">Showcase</a>
+    </aside>
+
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="menu">
+          <a href="#" class="menu_logo">
+            <img src="/img/360_F_699905865_uAhm2hwqnIucPWzmZXuE8VBJ7dKudgZR-removebg-preview.png" alt="D&C logo" width="44" height="44" />
+            <span>D&C</span>
+            <div class="theme-toggle">
+              <label class="theme-switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </a>
+
+          <div class="menu_links">
+            <a href="/HTML/index.html" class="menu_link active">Home</a>
+            <a href="/HTML/index2.html" class="menu_link">Apps</a>
+            <a href="/HTML/catolog.html" class="menu_link">Catalog</a>
+            <a href="/HTML/about.html" class="menu_link">About us</a>
+            <a href="/HTML/components.html" class="menu_link">Showcase</a>
+          </div>
+
+          <!-- burger -->
+          <button class="burger" id="burger" aria-expanded="false">
+            <span class="lines"><span></span><span></span><span></span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+ 
+    <section class="apps">
+      <div class="apps_left">
+        <img src="/img/360_F_699905865_uAhm2hwqnIucPWzmZXuE8VBJ7dKudgZR-removebg-preview.png" 
+          alt="DreamCar App" class="img" />
+      <div class="rating">
+        <span class="score">5.0</span>
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+      </div>
+      </div>
+      <div class="apps_text">
+      
+        <h1>DreamCar Mobile App</h1>
+        <p>
+          Stay connected to your dream cars anywhere.  
+          With the DreamCar app, you can:  
+        </p>
+        <ul>
+          <li>Browse our luxury car catalog</li>
+          <li>Book consultations instantly</li>
+          <li>Use AR to view cars in real size</li>
+          <li>Track your purchase process in real-time</li>
+        </ul>
+        <div class="apps_buttons">
+        <a href="#" class="appstore">Download on App Store</a>
+        <a href="#" class="googleplay">Get it on Google Play</a>
+        </div>
+      </div>
+    </section>
+  
+    <div class="promo-section">
+      <h2 class="gs">Special Promo Code</h2>
+      <div class="promo-box">
+        <span id="promoText">DREAMCAR2025</span>
+        <button id="copyBtn" class="copy-btn">
+          <span class="copy_icon">📋</span> Copy
+        </button>
+        <span id="copyTooltip" class="tooltip">Copied!</span>
+      </div>
+    </div>
+
+
+
+
+
+
+  <div class="user-rate">
+  <p>Rate this app:</p>
+  <div class="stars">
+    <span class="star" style="font-size: 30px; color: gray; cursor: pointer;">★</span>
+    <span class="star" style="font-size: 30px; color: gray; cursor: pointer;">★</span>
+    <span class="star" style="font-size: 30px; color: gray; cursor: pointer;">★</span>
+    <span class="star" style="font-size: 30px; color: gray; cursor: pointer;">★</span>
+    <span class="star" style="font-size: 30px; color: gray; cursor: pointer;">★</span>
+  </div>
+  <p class="rating-message">Click on a star to rate</p>
+</div>
+
+
+  <footer class="footer">
+    <h2>User Reviews</h2>
+    <div class="reviews">
+      <div class="review">
+        <p class="review-text">Great app! User-friendly interface and fast operation.</p>
+        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+        <p class="review-author">— Aliya</p>
+      </div>
+      <div class="review">
+        <p class="review-text">I really liked it, especially the design. I recommend it to my friends!</p>
+        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+        <p class="review-author">— Nursultan</p>
+      </div>
+      <div class="review">
+        <p class="review-text">The functionality is cool, but you can also add new features.</p>
+        <div class="review-rating">⭐⭐⭐⭐</div>
+        <p class="review-author">— Daniyar</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const priceInput = document.getElementById('price');
+        const priceValue = document.getElementById('priceValue');
+
+        priceInput.addEventListener('input', () => {
+          priceValue.textContent = Number(priceInput.value).toLocaleString();
+        });
+      });
+    </script>
+
+    <script src="/JS/super.js"></script>
+    <script src="/JS/script.js"></script>
+    <script src="/JS/scroll.js"></script>
+    <script src="/JS/theme-toggle.js"></script>
+  </body>
+</html>
